@@ -1,11 +1,18 @@
+//Juan Serrano
+//Taller 2
+
 #include <stdio.h>
 #include "magicSquare.h"
 
 int cuadradoMagico(int filas, int columnas, int cuadrado[filas][columnas]) {
-    int constante=calcularConstanteMagica(filas, columnas, cuadrado[filas][columnas]);
+
+    int constante;
+    constante= calcularConstanteMagica(filas, columnas, cuadrado[filas][columnas]);
     int suma;
+
     //filas
     for(int i=0; i<filas; i++){
+        suma=0;
         for(int j=0; j<filas; j++){
             suma+=cuadrado[i][j];
         }
@@ -15,6 +22,7 @@ int cuadradoMagico(int filas, int columnas, int cuadrado[filas][columnas]) {
     }
     //columnas
     for(int i=0; i<filas; i++){
+        suma=0;
         for(int j=0; j<filas; j++){
             suma+=cuadrado[j][i];
         }
@@ -24,6 +32,7 @@ int cuadradoMagico(int filas, int columnas, int cuadrado[filas][columnas]) {
         
     }
     //diagonal 1
+    suma=0;
     for(int i=0; i<filas; i++){
             suma+=cuadrado[i][i];
  
@@ -33,11 +42,9 @@ int cuadradoMagico(int filas, int columnas, int cuadrado[filas][columnas]) {
         }
 
     //diagonal 2
+    suma=0;
     for(int i=filas; i>=0; i--){
             suma+=cuadrado[i][i];
-
-        
-        
     }
     if(constante!=suma){
             return 0;
